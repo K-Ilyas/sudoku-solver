@@ -20,7 +20,6 @@ const rows = {
 function check(puzzle, coordinate, value, done) {
     const validate = solver.validate(puzzle);
     if (validate === true) {
-        console.log(coordinate);
         if (!/^[1-9]{1}$/.test(value))
             return done({ error: 'Invalid value' });
         if (!/^[A-I]{1}[1-9]{1}$/.test(coordinate))
@@ -51,7 +50,6 @@ function check(puzzle, coordinate, value, done) {
 
 function solve(puzzle, done) {
     const validate = solver.validate(puzzle);
-    console.log(validate);
     if (validate === true) {
         const result = solver.solve(puzzle);
         if (/^[1-9]{81}$/.test(result))
@@ -66,3 +64,4 @@ function solve(puzzle, done) {
 exports.check = check;
 exports.solve = solve;
 exports.createGrid = createGrid;
+exports.rows = rows;
